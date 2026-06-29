@@ -28,27 +28,23 @@ int main()
     a1 = fopen("a1.dat", "wb");
     a2 = fopen("a2.dat", "wb");
 
-    if(!entrada || !a1 || !a2)
-    {
+    if(!entrada || !a1 || !a2){
         printf("Erro ao abrir os arquivos.\n");
         return 1;
     }
 
     srand(time(NULL));
 
-    while(fread(&e, sizeof(Endereco), 1, entrada) == 1)
-    {
+    while(fread(&e, sizeof(Endereco), 1, entrada) == 1){
         sorteio = (double) rand() / RAND_MAX;
 
-        if(sorteio < 0.8)
-        {
+        if(sorteio < 0.8){
             fwrite(&e, sizeof(Endereco), 1, a1);
         }
 
         sorteio = (double) rand() / RAND_MAX;
 
-        if(sorteio < 0.8)
-        {
+        if(sorteio < 0.8){
             fwrite(&e, sizeof(Endereco), 1, a2);
         }
     }

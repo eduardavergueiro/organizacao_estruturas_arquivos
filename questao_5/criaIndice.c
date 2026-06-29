@@ -27,22 +27,19 @@ int main()
 
     f = fopen("a2.dat", "rb");
 
-    if(!f)
-    {
+    if(!f){
         printf("Erro ao abrir a2.dat\n");
         return 1;
     }
 
-    while(fread(&e, sizeof(Endereco), 1, f) == 1)
-    {
+    while(fread(&e, sizeof(Endereco), 1, f) == 1){
         sprintf(chave, "%.8s", e.cep);
 
         ArvoreB_Insere(a, chave, posicao);
 
         posicao++;
 
-        if(posicao % 10000 == 0)
-        {
+        if(posicao % 10000 == 0){
             printf(".");
             fflush(stdout);
         }

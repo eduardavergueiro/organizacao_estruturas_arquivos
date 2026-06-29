@@ -34,28 +34,24 @@ int main()
     a1 = fopen("a1.dat", "rb");
     saida = fopen("Intersecoes.dat", "wb");
 
-    if(!a1 || !saida)
-    {
+    if(!a1 || !saida){
         printf("Erro ao abrir os arquivos.\n");
         return 1;
     }
 
-    while(fread(&e, sizeof(Endereco), 1, a1) == 1)
-    {
+    while(fread(&e, sizeof(Endereco), 1, a1) == 1){
         sprintf(chave, "%.8s", e.cep);
 
         posicao = ArvoreB_Busca(arvore, chave);
 
-        if(posicao != -1)
-        {
+        if(posicao != -1){
             fwrite(&e, sizeof(Endereco), 1, saida);
             encontrados++;
         }
 
         lidos++;
 
-        if(lidos % 10000 == 0)
-        {
+        if(lidos % 10000 == 0){
             printf("Lidos: %ld  Intersecoes: %ld\n", lidos, encontrados);
         }
     }
