@@ -1,7 +1,7 @@
 #ifndef __CSV_PARSER__
 #define __CSV_PARSER__
 
-#define CSV_MAX_ROW_SIZE 4096
+#define CSV_MAX_ROW_SIZE 8192
 #define CSV_MAX_COLS 512
 
 typedef struct {
